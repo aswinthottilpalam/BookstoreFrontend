@@ -1,0 +1,36 @@
+<div style="background-color: grey;">
+    <div fxLayout="row" fxLayoutAlign="center center" fxFlex>
+        <div fxLayout="row" class="loginSection">
+            <div class="leftCard" fxHide.xs>
+                <mat-card>
+                    <img src="../../../assets/loginPageImg.png">
+                    <h4>Online Book Shoping</h4>
+                </mat-card>
+            </div>
+            <div class="rightCard">
+                <mat-card>
+                    <div fxLayoutGap="50%">
+                        <a href="#" class="btn" type="button">LOGIN</a>
+                        <a href="#" class="btn" type="button" routerLink="/signup">SIGNUP</a>
+                    </div>
+                    <div>
+                        <span >Email Id</span>
+                        <input type="text" matInput [(ngModel)]="email">
+                    </div>
+                    <div>
+                        <span >Password</span>
+                        <input type="text" matInput [(ngModel)]="password">
+                        <p routerLink="/forgot-password">Forgot Password?</p>
+                    </div>
+                    <button class="loginBtn"  (click)="onSubmit()">Login</button>
+
+                    <h5>-----------------------------------OR----------------------------------</h5>
+                    <div fxLayoutGap="25px">
+                        <button class="fbBtn">Facebook</button>
+                        <button class="googleBtn">Google</button>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
