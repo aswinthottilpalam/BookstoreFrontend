@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignupComponentComponent } from './component/signup-component/signup-component.component';
 import { LoginComponentComponent } from './component/login-component/login-component.component';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { ForgotPasswordComponent } from './component/forgot-password/forgot-pass
     SignupComponentComponent,
     LoginComponentComponent,
     ForgotPasswordComponent,
+    ResetPasswordComponent,
 
   ],
   imports: [

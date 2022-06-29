@@ -27,7 +27,6 @@ export class LoginComponentComponent implements OnInit {
       console.log(response);
       localStorage.setItem("token",response.data.token);
     })
-    //this.rout.navigateByUrl('/dashbord')
   }
 
 }

@@ -45,5 +45,16 @@ export class UserserviceService {
     return this.httpService.postService(`User/forgotPassword/${reqdata.Email}`, reqdata, false, header)
   }
 
+  resetPassword(reqdata: any, token: any) {
+    console.log(reqdata);
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': 'Bearer ' + token
+      })
+    }
+    console.log(reqdata)
+    return this.httpService.putService(`User/ResetPassword/${reqdata.newPassword}/${reqdata.confirmPassword}`, reqdata, true, header)
+  }
 
 }
