@@ -7,6 +7,7 @@ import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatToolbarModule} from '@angular/material/toolbar'; 
+import { MatIconModule } from '@angular/material/icon';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +17,7 @@ import { SignupComponentComponent } from './component/signup-component/signup-co
 import { LoginComponentComponent } from './component/login-component/login-component.component';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -25,6 +27,7 @@ import { ResetPasswordComponent } from './component/reset-password/reset-passwor
     LoginComponentComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
+    DashboardComponent,
 
   ],
   imports: [
@@ -38,7 +41,8 @@ import { ResetPasswordComponent } from './component/reset-password/reset-passwor
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatIconModule
     
   ],
   providers: [],
