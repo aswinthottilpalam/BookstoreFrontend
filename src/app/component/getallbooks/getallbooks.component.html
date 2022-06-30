@@ -1,0 +1,44 @@
+<div fxLayout="column" class="getallbooksContent">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="bookHead">
+        <h5>Books <span>({{booksArray?.length}} items)</span></h5>
+        <mat-form-field appearance="outline">
+            <mat-label>Sort by relevance</mat-label>
+            <mat-select class="matselect">
+                <mat-option (click)="lowtohigh()" value="one">Price:Low to High</mat-option>
+                <mat-option (click)=" hightolow()" value="two">Price:High to Low</mat-option>
+                <mat-option (click)="newestarrivals()" value="third">Newest Arrivals</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="25px" fxLayout="row wrap" fxFlex>
+        <div *ngFor="let Book of booksArray" fxLayout="row" fxLayout="row wrap" class="oneBook">
+            <mat-card>
+                <div class="mainBook">
+                    <div class="bookimg" fxLayout="row " fxLayoutAlign="center center">
+                        <img [src]="Book.bookImage" alt="book img" class="bookImgOne">
+                    </div>
+                    <div class="bookContent">
+                        <h2 class="title">{{Book.bookName}}</h2>
+                        <h6 class="auther">by {{Book.authorName}}</h6>
+                        <div class="rating" fxLayoutAlign="left center">
+                            <span id="ratingNum">
+                                ({{Book.rating}}) <mat-icon>grade</mat-icon>
+                            </span>
+                            <span id="count">({{Book.totalReview}})</span>
+                        </div>
+                        <div class="priceSection" fxLayout="row">
+                            <div class="dicountedPrice">
+                                Rs.{{Book.discountPrice}}
+                            </div>
+                            <div class="actualPrice">
+                                Rs.{{Book.originalPrice}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+
+</div>

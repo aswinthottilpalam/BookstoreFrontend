@@ -8,6 +8,7 @@ import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import { MatIconModule } from '@angular/material/icon';
+import {MatSelectModule} from '@angular/material/select';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +19,7 @@ import { LoginComponentComponent } from './component/login-component/login-compo
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { GetallbooksComponent } from './component/getallbooks/getallbooks.component';
 
 
 @NgModule({
@@ -28,6 +30,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
     ForgotPasswordComponent,
     ResetPasswordComponent,
     DashboardComponent,
+    GetallbooksComponent,
 
   ],
   imports: [
@@ -42,7 +45,8 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
     ReactiveFormsModule,
     HttpClientModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule
     
   ],
   providers: [],
