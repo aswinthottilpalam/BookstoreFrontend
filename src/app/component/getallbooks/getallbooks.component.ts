@@ -36,4 +36,9 @@ export class GetallbooksComponent implements OnInit {
     this.booksArray.reverse();
   }
 
+  quickview(Book:any){  
+    localStorage.setItem('bookId', Book.bookId); 
+    this.router.navigateByUrl('dashboard/quick-view');
+  }
+
 }

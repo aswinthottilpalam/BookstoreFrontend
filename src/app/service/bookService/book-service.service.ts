@@ -22,6 +22,31 @@ export class BookServiceService {
     return this.httpService.getService('Book/GetAllBook',true,header)
   }
 
+  getBookById(reqdata: any) {
+    console.log(reqdata);
+    this.token=localStorage.getItem("token")
+    let header = {
+      headers: new HttpHeaders({
+        
+        'Content-Type': 'application/json',
+        'Authorization' : 'Bearer '+ this.token,
+      }),
+    };
+    return this.httpService.getService( `Book/GetBookByBookId/${reqdata.BookId}`, true,header );
+  }
+
+  addFeedback(data: any) {
+    console.log(data);
+    this.token=localStorage.getItem("token")
+    let header = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization' : 'Bearer '+ this.token,
+      }),
+    };
+    return this.httpService.postService('Feedback/AddFeedback', data, true, header);
+  }
+
 }
 
 

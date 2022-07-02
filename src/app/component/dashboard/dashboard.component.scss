@@ -42,11 +42,9 @@
 }
 .profileIcon .mat-icon {margin-right: 10px;}
 .footer {
-    position: fixed;
-    bottom: 0%;
     background-color: #4e3133;
     color: #fff;
-    width: 100%;
+    overflow-x: hidden;
     padding: 12px 60px;
     align-items: center;
 }

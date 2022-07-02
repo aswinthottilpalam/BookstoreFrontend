@@ -1,0 +1,83 @@
+<div style="width: 100%" fxLayout="column" class="quickViewContent">
+    <div fxLayout="column" >
+        <div>
+            <span routerLink="/dashboard/books" style="color: grey; cursor: pointer;">Home</span> /
+            <span style="cursor: pointer;">Books({{BookId}})</span>
+        </div>
+
+        <div fxLayout="row" style="padding-top: 30px;">
+            <div fxLayout="row" fxLayoutAlign="center start" >
+                <div class="bookImgSmall" fxLayoutAlign="center center">
+                    <img [src]="booksArray.bookImage"  alt="book img">
+                </div>
+                <div>
+                    <div class="bookImgCover" fxLayoutAlign="center center">
+                        <img [src]="booksArray.bookImage"  alt="book img">
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="space-between" class="twoBtns">
+                        <button *ngIf="!show" (click)="hideAndShow()" class="addToBagBtn" >ADD TO BAG</button>
+                        <mat-card fxLayout="row" fxLayoutAlign="center center" *ngIf="show">
+                            <mat-icon class="minusIcon">remove_circle_outline</mat-icon>
+                            <input type="text" class="inputNum">
+                            <mat-icon class="plusIcon" >add_circle_outline</mat-icon>
+                        </mat-card>
+                        <button class="wishlistBtn" fxLayout="row" fxLayoutAlign="center center" >
+                            <mat-icon class="heartIcon">favorite</mat-icon> <span>WHISH LIST</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div fxLayout="column" class="bookDetailsSection">
+                <h2 class="title"> {{booksArray.bookName}}</h2>
+                <p class="auther"> by {{booksArray.authorName}} </p>
+                <div class="rating" fxLayoutAlign="left center">
+                    <span id="ratingNum">
+                        {{booksArray.rating}} <mat-icon>grade</mat-icon>
+                    </span>
+                    <span id="count"> ({{booksArray.totalReview}})</span>
+                </div>
+                <div class="priceSection" fxLayout="row">
+                    <div class="dicountedPrice">
+                        Rs.{{booksArray.discountPrice}}
+                    </div>
+                    <div class="actualPrice">
+                        Rs.{{booksArray.originalPrice}}
+                    </div>
+                </div>
+
+                <hr>
+                <div class="bookDetail">
+                    <li>Book Detail</li>
+                    <p> {{booksArray.bookDetails}} </p>
+                </div>
+                <hr>
+
+                <!-- add feedback section -->
+                <div>
+                    <h3 style="font-size: 20px; font-weight: 400;">Customer Feedback</h3>
+                    <mat-card class="addFeedbackSection">
+                        <p>Overall rating</p>
+                        <div class="rate">
+                            <input type="radio" id="star5" name="rate"  [(ngModel)]="rating"  value="5" />
+                            <label for="star5" title="excellent"></label>
+                            <input type="radio" id="star4" name="rate"  [(ngModel)]="rating"  value="4" />
+                            <label for="star4" title="Very Good"></label>
+                            <input type="radio" id="star3" name="rate"  [(ngModel)]="rating" value="3" />
+                            <label for="star3" title="Good"></label>
+                            <input type="radio" id="star2" name="rate"  [(ngModel)]="rating"  value="2" />
+                            <label for="star2" title="Not Bad"></label>
+                            <input type="radio" id="star1" name="rate"  [(ngModel)]="rating"  value="1" />
+                            <label for="star1" title="Bad"></label>
+                        </div>
+                        <input type="text"  placeholder="Enter you review"  [(ngModel)]="comment">
+                        <div fxLayoutAlign="end center">
+                            <button (click)="addBookFeedback()">Submit</button>
+                        </div>
+                    </mat-card>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -16,7 +16,7 @@
             <mat-card>
                 <div class="mainBook">
                     <div class="bookimg" fxLayout="row " fxLayoutAlign="center center">
-                        <img [src]="Book.bookImage" alt="book img" class="bookImgOne">
+                        <img [src]="Book.bookImage" alt="book img" class="bookImgOne" (click)="quickview(Book)">
                     </div>
                     <div class="bookContent">
                         <h2 class="title">{{Book.bookName}}</h2>

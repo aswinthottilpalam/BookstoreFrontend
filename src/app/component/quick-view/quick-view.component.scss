@@ -1,0 +1,174 @@
+.quickViewContent {
+    padding: 20px 110px 60px 60px;
+}
+.bookImgSmall{
+    width: 60px;
+    height: 70px;
+    border: 2px solid brown;
+}
+.bookImgSmall img{
+    width: 50px;
+    height: 60px;
+}
+.bookImgCover {
+    width: 400px;
+    height: 480px;
+    border: 2px solid rgb(223, 214, 214);
+}
+.bookImgCover img{
+    width: 320px;
+    height: 420px;
+}
+.twoBtns {padding-top: 30px;}
+.addToBagBtn {
+    background: #A03037;
+    border-radius: 2px;
+    border: none;
+    color: #fff;
+    height: 40px;
+    width: 170px;
+    cursor: pointer;
+}
+.minusIcon {
+    background: #FAFAFA;
+    border-radius: 50%;
+    color: #DBDBDB;
+    font-size: 30px;
+}
+.twoBtns .mat-card {box-shadow: none; padding: 0;}
+.plusIcon {
+    color: #333232;
+    background: #FAFAFA;
+    border-radius: 50%;
+    font-size: 30px;
+}
+.inputNum {
+    width: 60px;
+    height: 26px;
+    background: #FFFFFF;
+    border: 1px solid #DBDBDB;
+    border-radius: 2px;
+    margin: 7px 10px 0 15px;
+    text-align: center;
+}
+.wishlistBtn {
+    width: 170px;
+    height: 40px;
+    background-color: #382525;
+    color: aliceblue;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+}
+.heartIcon {
+    font-size: 20px;
+    margin-top: 6px;
+}
+.wishlistBtn span {
+    margin: 3px 0 0 5px;
+}
+.bookDetailsSection {padding-left: 50px;}
+.title {
+    font-size: 30px;
+}
+.auther {
+    color: grey;
+    margin: 0;
+}
+.rating #ratingNum {
+    background: #388E3C;
+    color: #fff;
+    font-size: 12px;
+    padding: 2px 10px;
+    border-radius: 2px;
+    margin-top: 5px;
+}
+#ratingNum .mat-icon {
+    font-size: 14px;
+    width: unset;
+    height: unset;
+}
+#count {
+    font-size: 12px;
+    color: grey;
+    padding-left: 8px;
+}
+.priceSection {margin-top: 20px;}
+.dicountedPrice {
+    font-size: 28px;
+    font-weight: 500;
+}
+.actualPrice {
+    text-decoration: line-through;
+    color: gray;
+    font-size: 15px;
+    padding-left: 10px;
+}
+.bookDetail li {
+    font-size: 16px;
+    color: gray;
+}
+hr {
+    width: 100%;
+    margin-top: 26px;
+    margin-bottom: 30px;
+    border: 1px solid #e5e5e5;
+}
+.bookDetail p {
+    padding-left: 24px;
+    padding-top: 8px;
+}
+
+/***** Add feedback *******/
+.rate{
+    width: 130px;
+}
+.rate:not(:checked)>label::after {
+    content: '★ ';
+    font-size: 28px;
+    animation-direction: alternate;
+}
+.rate:not(:checked)>label {
+    float: right;
+    width: 1em;
+    margin-bottom: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 22px;
+    color: #ccc;
+    padding-right: 4px;
+}
+.rate>input:checked~label {
+    color: #ffc700;
+}
+.rate:not(:checked)>input {
+    display: none;
+}
+.addFeedbackSection {
+    background: #f7f7f7;
+}
+.addFeedbackSection p {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+.addFeedbackSection input {
+    width: 98%;
+    background: #fff;
+    border: none;
+    height: 50px;
+    padding-left: 10px;
+    border-radius: 4px;
+}
+.addFeedbackSection input:focus{outline: none;}
+.addFeedbackSection button {
+    background:  #3371B5;
+    border-radius: 2px;
+    width: 80px;
+    height: 30px;
+    border: none;
+    color: #fff;
+    margin-top: 20px;
+    cursor: pointer;
+}
