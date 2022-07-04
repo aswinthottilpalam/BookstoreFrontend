@@ -18,10 +18,10 @@
                         <button *ngIf="!show" (click)="hideAndShow()" class="addToBagBtn" >ADD TO BAG</button>
                         <mat-card fxLayout="row" fxLayoutAlign="center center" *ngIf="show">
                             <mat-icon class="minusIcon">remove_circle_outline</mat-icon>
-                            <input type="text" class="inputNum">
-                            <mat-icon class="plusIcon" >add_circle_outline</mat-icon>
+                            <input type="text" [(ngModel)]="bookQuantity" class="inputNum">
+                            <mat-icon class="plusIcon"  (click)="addToBag()" >add_circle_outline</mat-icon>
                         </mat-card>
-                        <button class="wishlistBtn" fxLayout="row" fxLayoutAlign="center center" >
+                        <button class="wishlistBtn" fxLayout="row" fxLayoutAlign="center center"  (click)="addToWishList()" >
                             <mat-icon class="heartIcon">favorite</mat-icon> <span>WHISH LIST</span>
                         </button>
                     </div>
@@ -74,6 +74,36 @@
                             <button (click)="addBookFeedback()">Submit</button>
                         </div>
                     </mat-card>
+                </div>
+                <div>
+                    <!-- <mat-card style="margin-top: 40px; border: none;background-color: #f3f3f3;" fxLayout="column">
+                        <div fxLayoutGap="20px" *ngFor="let feedback of booksArr" style="margin-left: 20px;">
+                            <div class="user">
+                                <span class="user-feedback">*  {{(feedback?.fullName)}}</span>
+                            </div>
+                            <div>
+                                <span class="user-rating">*Rating:-  {{feedback?.rating}}</span>
+                            </div>
+                            <div>
+                                <span class="user-comment">*Comment:-   {{feedback?.comment}}</span>
+                            </div>
+                        </div>
+                    </mat-card> -->
+
+                    <mat-card  fxLayout="column" class="fullReviews">
+                        <div fxLayoutGap="20px" *ngFor="let feedback of booksArr">
+                            <div>
+                                <span> {{(feedback?.fullName)}}</span>
+                            </div>
+                            <div>
+                                <ngb-rating class="ngbRating" [max]="5" [(rate)]="feedback.rating" [readonly]="true"></ngb-rating>
+                            </div>
+                            <div style="padding-top: 10px;">
+                                <span class="user-comment"> {{feedback?.comment}}</span>
+                            </div>
+                        </div>
+                    </mat-card>
+
                 </div>
 
             </div>

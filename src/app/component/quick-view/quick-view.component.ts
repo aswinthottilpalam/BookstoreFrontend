@@ -14,6 +14,8 @@ export class QuickViewComponent implements OnInit {
   show: any;
   comment: any;
   rating: any;
+  booksArr: any = [];
+  bookQuantity: any;
 
   constructor(private router: Router, private bookService: BookServiceService ) { }
 
@@ -30,7 +32,7 @@ export class QuickViewComponent implements OnInit {
     this.bookService.getBookById(reqdata).subscribe((response: any) => {
       console.log(response);
       this.booksArray = response.response;
-      // this.getFeedback();
+      this.getFeedback();
       console.log(this.booksArray);
     });
   }
@@ -38,6 +40,7 @@ export class QuickViewComponent implements OnInit {
   hideAndShow(){
     this.show = !this.show
   }
+
 
   addBookFeedback() {
     let data = {
@@ -48,7 +51,47 @@ export class QuickViewComponent implements OnInit {
     this.bookService.addFeedback(data).subscribe(
       (response: any) => {
         console.log('User Feedback', response);
-        // this.getFeedback();
+        this.getFeedback();
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getFeedback() {
+    console.log("feedback")
+    this.bookService.getfeedBack(this.BookId).subscribe((response: any) => {
+      console.log('User Feedback', response);
+      this.booksArr = response.response;
+      console.log(this.booksArr);
+    });
+  }
+
+
+  addToBag() {
+    let data = {
+      bookId: this.BookId,
+      bookQuantity:this.bookQuantity
+    }
+    this.bookService.addToBag(data).subscribe(
+      (response: any) => {
+        console.log('Add to cart', response);
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+  }
+
+
+  addToWishList() {
+    let data = {
+      bookId: this.BookId,
+    }
+    this.bookService.addwishlist(data).subscribe(
+      (response: any) => {
+        console.log('Add to wishlist', response);
       },
       (error: any) => {
         console.log(error);

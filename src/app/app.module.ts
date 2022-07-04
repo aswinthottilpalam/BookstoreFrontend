@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import { MatIconModule } from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
+import {MatMenuModule} from '@angular/material/menu'
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +22,9 @@ import { ResetPasswordComponent } from './component/reset-password/reset-passwor
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { GetallbooksComponent } from './component/getallbooks/getallbooks.component';
 import { QuickViewComponent } from './component/quick-view/quick-view.component';
+import { CartComponent } from './component/cart/cart.component';
+import { WishlistComponent } from './component/wishlist/wishlist.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -33,6 +37,8 @@ import { QuickViewComponent } from './component/quick-view/quick-view.component'
     DashboardComponent,
     GetallbooksComponent,
     QuickViewComponent,
+    CartComponent,
+    WishlistComponent,
 
   ],
   imports: [
@@ -48,7 +54,9 @@ import { QuickViewComponent } from './component/quick-view/quick-view.component'
     HttpClientModule,
     MatToolbarModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    MatMenuModule,
+    NgbModule
     
   ],
   providers: [],

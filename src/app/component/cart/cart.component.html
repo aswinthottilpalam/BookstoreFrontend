@@ -1,0 +1,50 @@
+<div class="mycartContent" >
+    <div fxLayout="column" >
+        <div>
+            <span routerLink="/dashboard/books" style="color: grey; cursor: pointer;">Home</span> /
+            <span style="cursor: pointer;">My cart</span>
+
+            <mat-card class="cartSection">
+                <div fxLayout="row" fxLayoutAlign="space-between" style="width: 100%;">
+                    <div>
+                        <h4 >My cart ({{cartArray?.length}})</h4>
+                    </div>
+                    <div  class="location">
+                        <span > <mat-icon> location_on</mat-icon> Bridelabz solution LLP ltd</span>
+                    </div>
+                </div>
+                <div style="padding-bottom: 15px;"  fxLayout="row" *ngFor="let cart of cartArray">
+                    <div>
+                        <img class="cartBookImg" src="{{cart.bookmodel.bookImage}}" >
+                    </div>
+                    <div class="cartBookDetail">
+                        <h2 class="title"> {{cart.bookmodel.bookName}} </h2>
+                        <p class="auther"> {{cart.bookmodel.authorName}}</p>
+                        <div class="priceSection" fxLayout="row">
+                            <div class="dicountedPrice">
+                                Rs.{{cart.bookmodel.discountPrice * cart.bookQuantity}}
+                            </div>
+                            <div class="actualPrice">
+                                Rs.{{cart.bookmodel.originalPrice * cart.bookQuantity}}
+                            </div>
+                        </div>
+                        <div class="wrapper minusPlus" fxLayout="row" fxLayoutAlign="start center">
+                            <mat-card fxLayout="row" fxLayoutAlign="center center" >
+                                <mat-icon class="minusIcon" (click)="updateToLess(cart.cartId,cart.bookQuantity,cart.bookId)">remove_circle_outline</mat-icon>
+                                <input type="text" class="inputNum">
+                                <mat-icon class="plusIcon" (click)="updateToAdd(cart.cartId,cart.bookQuantity,cart.bookId)" >add_circle_outline</mat-icon>
+                            </mat-card>
+                            <a class="remove" (click)="removecart(cart.cartId)">Remove</a>
+                        </div>
+                       
+                    </div>
+                 
+                </div>
+                <div fxLayoutAlign="end">
+                    <button class="placeOrderBtn">PLACE ORDER</button>
+                </div>  
+            </mat-card>
+
+        </div>
+    </div>
+</div>

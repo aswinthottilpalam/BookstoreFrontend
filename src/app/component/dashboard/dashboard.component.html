@@ -11,12 +11,26 @@
             <input type="text" placeholder="Search..." class="searchbox">
         </div>
 
-        <a fxFlex=10 class="profileIcon">
+        <a fxFlex=10 class="profileIcon" mat-button [matMenuTriggerFor]="menu">
             <mat-icon class="icon" style="display: block;">perm_identity</mat-icon>
             <span> Profile</span>
+
+            <mat-menu class="matmenu" #menu="matMenu" >
+                <div class="dropdownmenu">
+                    <h3>Hello User!</h3>
+                    <button class="dropWishBtn" fxLayout="row" fxLayoutAlign="center center" routerLink="/dashboard/wishlist">
+                        <mat-icon>favorite_border</mat-icon> <span> My Wishlist</span>
+                    </button>
+                    <div>
+                        <button class="logoutBtn" (click)="Logout()">Logout</button>
+                    </div>
+                </div>
+            </mat-menu>
         </a>
+
+
         <a fxFlex=10 class="cartIcon">
-            <mat-icon class="icon" style="display: block;">shopping_cart</mat-icon>
+            <mat-icon class="icon" style="display: block;" routerLink="/dashboard/cart">shopping_cart</mat-icon>
             <span> Cart</span>
         </a>
 

@@ -1,0 +1,90 @@
+.mycartContent {
+    padding: 20px 60px 60px 60px;
+}
+.cartSection {
+    margin: 20px 0;
+    border: 1px solid #e3e3e3;
+}
+.cartSection h4 {
+    font-size: 18px;
+    font-weight: 500;
+}
+.location {
+    border: 1px solid #DCDCDC;
+    border-radius: 2px;
+    padding: 5px;
+}
+.location span {
+    font-size: 14px;
+    font-weight: 400;
+}
+.location .mat-icon {
+    font-size: 16px;
+    padding-top: 8px;
+    color: #973838;
+}
+.title {
+    font-size: 18px;
+    margin: 0;
+}
+.auther {
+    font-size: 12px;
+    color: grey;
+    margin: 0;
+}
+.priceSection {margin: 5px 0;}
+.dicountedPrice {
+    font-size: 16px;
+    font-weight: 600;
+}
+.actualPrice {
+    text-decoration: line-through;
+    color: gray;
+    font-size: 12px;
+    padding-left: 8px;
+}
+.minusIcon {
+    background: #FAFAFA;
+    border-radius: 50%;
+    color: #DBDBDB;
+    font-size: 22px;
+}
+.minusPlus .mat-card {box-shadow: none; padding: 0;}
+.plusIcon {
+    color: #333232;
+    background: #FAFAFA;
+    border-radius: 50%;
+    font-size: 22px;
+}
+.minusPlus {
+    padding: 12px 0;
+}
+.inputNum {
+    width: 45px;
+    height: 22px;
+    background: #FFFFFF;
+    border: 1px solid #DBDBDB;
+    border-radius: 2px;
+    margin: 0px 6px 0 3px;
+    text-align: center;
+}
+.remove {
+    padding-left: 20px;
+    cursor: pointer;
+}
+.placeOrderBtn {
+    background: #3371B5;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    width: 130px;
+    height: 35px;
+    cursor: pointer;
+}
+.cartBookImg {
+    width: 100px;
+    height: 130px;
+}
+.cartBookDetail {
+    padding-left: 40px;
+}

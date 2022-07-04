@@ -1,0 +1,37 @@
+<div class="wishlistContent">
+    <div fxLayout="column">
+        <div>
+            <span routerLink="/dashboard/books" style="color: grey; cursor: pointer;">Home</span> /
+            <span style="cursor: pointer;">My Wishlist</span>
+
+            <mat-card fxLayout="column" class="wishlistBookDetails">
+                <div>
+                    <h4>My Wishlist ({{wishArray?.length}})</h4>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-between" class="wishlistBox" *ngFor="let wish of wishArray">
+                    <div fxLayout="row" >
+                        <div>
+                            <img src="{{wish.bookmodel.bookImage}}">
+                        </div>
+                        <div style="padding-left: 40px;">
+                            <h2 class="title"> {{wish.bookmodel.bookName}} </h2>
+                            <p class="auther"> {{wish.bookmodel.authorName}} </p>
+                            <div class="priceSection" fxLayout="row">
+                                <div class="dicountedPrice">
+                                    Rs.{{wish.bookmodel.discountPrice}}
+                                </div>
+                                <div class="actualPrice">
+                                    Rs.{{wish.bookmodel.originalPrice}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <mat-icon class="deleteIcon" (click)=" removewishlist(wish.wishlistId)">delete</mat-icon>
+                    </div>
+                </div>
+            </mat-card>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+.wishlistContent {
+    padding: 20px 110px 60px 60px;
+}
+.wishlistBookDetails img {
+    width: 100px;
+    height: 130px;
+}
+.wishlistBookDetails {
+    margin-top: 12px;
+    padding: 0;
+}
+.wishlistBookDetails h4 {
+    font-size: 18px;
+    font-weight: 500;
+    background: #F5F5F5;
+    padding: 10px 10px 10px 40px;
+}
+.wishlistBox {
+    padding: 0px 40px 15px 40px;
+    border-bottom: 1px solid #E4E4E4;
+    margin-bottom: 20px;
+}
+.title {
+    font-size: 22px;
+    margin-bottom: 0;
+}
+.auther {
+    color: grey;
+    margin: 0;
+}
+.priceSection {margin-top: 20px;}
+.dicountedPrice {
+    font-size: 20px;
+    font-weight: 500;
+}
+.actualPrice {
+    text-decoration: line-through;
+    color: gray;
+    font-size: 14px;
+    padding-left: 10px;
+}
+.deleteIcon {
+    color: #9D9D9D;
+    cursor: pointer;
+    margin-top: 20px;
+}
