@@ -1,5 +1,5 @@
-<div class="mycartContent" >
-    <div fxLayout="column" >
+<div class="mycartContent">
+    <div fxLayout="column">
         <div>
             <span routerLink="/dashboard/books" style="color: grey; cursor: pointer;">Home</span> /
             <span style="cursor: pointer;">My cart</span>
@@ -7,15 +7,17 @@
             <mat-card class="cartSection">
                 <div fxLayout="row" fxLayoutAlign="space-between" style="width: 100%;">
                     <div>
-                        <h4 >My cart ({{cartArray?.length}})</h4>
+                        <h4>My cart ({{cartArray?.length}})</h4>
                     </div>
-                    <div  class="location">
-                        <span > <mat-icon> location_on</mat-icon> Bridelabz solution LLP ltd</span>
+                    <div class="location">
+                        <span>
+                            <mat-icon> location_on</mat-icon> Bridelabz solution LLP ltd
+                        </span>
                     </div>
                 </div>
-                <div style="padding-bottom: 15px;"  fxLayout="row" *ngFor="let cart of cartArray">
+                <div style="padding-bottom: 15px;" fxLayout="row" *ngFor="let cart of cartArray">
                     <div>
-                        <img class="cartBookImg" src="{{cart.bookmodel.bookImage}}" >
+                        <img class="cartBookImg" src="{{cart.bookmodel.bookImage}}">
                     </div>
                     <div class="cartBookDetail">
                         <h2 class="title"> {{cart.bookmodel.bookName}} </h2>
@@ -29,21 +31,186 @@
                             </div>
                         </div>
                         <div class="wrapper minusPlus" fxLayout="row" fxLayoutAlign="start center">
-                            <mat-card fxLayout="row" fxLayoutAlign="center center" >
-                                <mat-icon class="minusIcon" (click)="updateToLess(cart.cartId,cart.bookQuantity,cart.bookId)">remove_circle_outline</mat-icon>
+                            <mat-card fxLayout="row" fxLayoutAlign="center center">
+                                <mat-icon class="minusIcon"
+                                    (click)="updateToLess(cart.cartId,cart.bookQuantity,cart.bookId)">
+                                    remove_circle_outline</mat-icon>
                                 <input type="text" class="inputNum">
-                                <mat-icon class="plusIcon" (click)="updateToAdd(cart.cartId,cart.bookQuantity,cart.bookId)" >add_circle_outline</mat-icon>
+                                <mat-icon class="plusIcon"
+                                    (click)="updateToAdd(cart.cartId,cart.bookQuantity,cart.bookId)">add_circle_outline
+                                </mat-icon>
                             </mat-card>
                             <a class="remove" (click)="removecart(cart.cartId)">Remove</a>
                         </div>
-                       
+
                     </div>
-                 
+
                 </div>
                 <div fxLayoutAlign="end">
-                    <button class="placeOrderBtn">PLACE ORDER</button>
-                </div>  
+                    <button class="placeOrderBtn" *ngIf="!show" (click)="hideAndShow()">PLACE ORDER</button>
+                </div>
             </mat-card>
+
+            <!-- address section -->
+            <mat-expansion-panel [expanded]="true" hideToggle>
+                <mat-expansion-panel-header *ngIf="!show" (click)="hideAndShow()">
+                    <mat-panel-title>
+                        Address Details
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div fxLayout="row" fxLayoutAlign="space-between start" class="addrDetailSection">
+                    <div fxLayout="column" fxLayoutGap="2px" *ngIf="show" class="addrDetailSectionTwo">
+                        <div fxLayoutAlign="space-between start">
+                            <div>
+                                <span class="heading">Customer Details</span>
+                            </div>
+                            <div>
+                                <button class="addnewAddressBtn" *ngIf="!addshow" (click)="addshowhide()">Add New Address</button>
+                            </div>
+                        </div>
+
+                        <div fxLayout="row" fxLayoutGap="20px">
+                            <div class="fullname">
+                                <div>
+                                    <mat-label class="names">Full Name</mat-label>
+                                </div>
+                                <div>
+                                    <input matInput type="text" placeholder="Aswin">
+                                </div>
+                            </div>
+                            <div class="mobileNo">
+                                <div>
+                                    <mat-label class="names">Mobile Number</mat-label>
+                                </div>
+                                <div>
+                                    <input matInput type="text" placeholder="999888770">
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="addshow">
+                            <div>
+                                <div>
+                                    <mat-label class="names">Address</mat-label>
+                                </div>
+                                <div class="addressOne">
+                                    <input matInput type="text" [(ngModel)]="address">
+                                </div>
+                            </div>
+                            <div fxLayout="row" fxLayoutGap="20px">
+                                <div class="city">
+                                    <div>
+                                        <mat-label class="names">City/Town</mat-label>
+                                    </div>
+                                    <div>
+                                        <input matInput type="text" [(ngModel)]="city">
+                                    </div>
+                                </div>
+                                <div class="state">
+                                    <div>
+                                        <mat-label class="names">State</mat-label>
+                                    </div>
+                                    <div>
+                                        <input matInput type="text" [(ngModel)]="state">
+                                    </div>
+                                </div>
+                            </div>
+                            <div fxLayout="column" fxLayoutGap="7px">
+                                <span class="type">Type</span>
+                                <mat-radio-group [(ngModel)]="value" aria-label="Select an option" fxLayoutGap="20%">
+                                    <mat-radio-button class="home" value="1">Home</mat-radio-button>
+                                    <mat-radio-button class="work" value="2">Work</mat-radio-button>
+                                    <mat-radio-button class="other" value="3">Other</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+
+                            <div fxLayoutAlign="end end">
+                                <button mat-flat-button class="addContinueBtn" (click)="Addaddress()">Submit
+                                    Address</button>
+                            </div>
+                        </div>
+
+                        <!-- get all address -->
+                        <div *ngIf="!addshow">
+                            <div *ngFor="let Address of AddressArray">
+                                <div *ngIf="Address.typeId > 2">
+                                    <input type="radio" [(ngModel)]="AddressId" [id]="Address.addressId"
+                                        value="{{Address.addressId}}" style="margin-top: 20px;">
+                                    <span for="Address.typeId" style="font-size: 18px; padding-left: 5px;">Home </span>
+                                </div>
+                                <div *ngIf="Address.typeId===2">
+                                    <input type="radio" [(ngModel)]="AddressId" [id]="Address.addressId"
+                                        value="{{Address.addressId}}" style="margin-top: 20px;">
+                                    <span for="Address.typeId" style="font-size: 18px; padding-left: 5px;">Work </span>
+                                </div>
+                                <div *ngIf="Address.typeId===1">
+                                    <input type="radio" [(ngModel)]="AddressId" [id]="Address.addressId"
+                                        value="{{Address.addressId}}" style="margin-top: 20px;">
+                                    <span for="Address.typeId" style="font-size: 18px; padding-left: 5px;">other </span>
+                                </div>
+                                <div style="margin-top: 10px;">
+                                    <div>
+                                        <mat-label>Address</mat-label>
+                                    </div>
+                                    <input class="addnewInput" [value]="Address.address">
+                                </div>
+                                <div fxLayout="row" fxLayoutGap="20px">
+                                    <div>
+                                        <div>
+                                            <mat-label>City/Town</mat-label>
+                                        </div>
+                                        <input class="inputvalueTwo" [value]="Address.city">
+                                    </div>
+                                    <div style="margin-left: 5px;">
+                                        <div>
+                                            <mat-label>State</mat-label>
+                                        </div>
+                                        <input class="inputvalueTwo" [value]="Address.state">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div fxLayoutAlign="end"><button *ngIf="!order" (click)="ordershow()" class="addContinueBtn" >Continue</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </mat-expansion-panel >
+
+            <mat-expansion-panel style="margin-top: 20px;" [expanded]="true" hideToggle>
+                <mat-expansion-panel-header *ngIf="!order">
+                    <mat-panel-title>
+                        Order Summary
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div fxLayout="column" fxLayoutAlign="space-between" *ngIf="order" class="AddOrderDetail">
+                    <div fxLayout="row" *ngFor="let cart of cartArray" style="margin-bottom: 20px;">
+                        <div>
+                            <img style="width: 100px; height: 130px;" src="{{cart.bookmodel.bookImage}}">
+                        </div>
+                        <div style="padding-left: 40px; padding-top: 15px;">
+                            <h2 class="title"> {{cart.bookmodel.bookName}} </h2>
+                            <p class="auther"> {{cart.bookmodel.authorName}} </p>
+                            <div class="priceSection" fxLayout="row">
+                                <div class="dicountedPrice">
+                                    Rs.{{cart.bookmodel.discountPrice * cart.bookQuantity}}
+                                </div>
+                                <div class="actualPrice">
+                                    Rs.{{cart.bookmodel.originalPrice * cart.bookQuantity}}
+                                </div>
+                            </div>
+                        </div>
+                        <div fxLayoutAlign="end end">
+                            <button mat-flat-button class=" checkoutButton addContinueBtn" (click)="addToOrder(cart.bookId,cart.bookQuantity)">Checkout</button>
+                        </div>
+                    </div>
+                </div>
+              
+            </mat-expansion-panel>
 
         </div>
     </div>

@@ -1,0 +1,36 @@
+<div class="orderlistContent">
+    <div fxLayout="column">
+        <div>
+            <span routerLink="/dashboard/books" style="color: grey; cursor: pointer;">Home</span> /
+            <span style="cursor: pointer;">My Order({{OrderArray?.length}}) </span>
+        </div>
+        <mat-card fxLayout="column" style="margin-top: 12px;">
+           
+            <div fxLayout="row" fxLayoutAlign="space-between" class="orderlistBox" *ngFor="let Order of OrderArray" >
+                <div fxLayout="row" >
+                    <div>
+                        <img style="width: 100px; height:130px; " src="{{Order.bookImage}}">
+                    </div>
+                    <div style="padding-left: 40px;">
+                        <h2 class="title"> {{Order.bookName}} </h2>
+                        <p class="auther"> {{Order.authorName}} </p>
+                        <div class="priceSection" fxLayout="row">
+                            <div class="dicountedPrice">
+                                Rs.{{Order.totalPrice}}
+                            </div>
+                            <div style="padding-left: 10px; color: gray;">
+                               ( {{Order.bookQuantity}} )
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="placedDate">
+                        <mat-icon class="greenDot">fiber_manual_record</mat-icon>
+                       <span> Placed order on {{Order.orderDate}}</span>
+                    </h4>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>

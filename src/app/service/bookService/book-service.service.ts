@@ -163,6 +163,55 @@ export class BookServiceService {
   }
 
 
+  getAddress(){
+    this.token = localStorage.getItem('token')
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json-patch+json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    return this.httpService.getService('Address/GetAllAddresses', true, header)
+  }
+
+  addAddress(data:any){
+    this.token = localStorage.getItem('token')
+    console.log(data);
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json-patch+json',
+        'Authorization': 'Bearer ' + this.token
+      })
+     
+    }
+    console.log(data);
+    return this.httpService.postService('Address/AddAddress',data, true, header)
+  }
+
+  addToOrder(data: any) {
+    console.log(data);
+    this.token=localStorage.getItem("token")
+    let header = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization' : 'Bearer '+ this.token,
+      }),
+    };
+    return this.httpService.postService('Order/AddOrder', data,true, header);
+  }
+
+  GetOrder(){
+    this.token = localStorage.getItem('token')
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json-patch+json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    return this.httpService.getService('Order/GetAllOrder', true, header)
+  }
+
+
 }
 
 

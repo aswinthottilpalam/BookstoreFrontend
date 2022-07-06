@@ -5,3 +5,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+
+// Color change for the radio btn (add address section)
+.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+    opacity: 0 !important; /*click effect color change*/
+    background-color: #8F2B2F !important;  }
+    
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+background-color: #8F2B2F !important; /*inner circle color change*/  }
+    
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+border-color: #8F2B2F !important; /*outer ring color change*/  }

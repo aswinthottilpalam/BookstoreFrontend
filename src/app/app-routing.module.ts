@@ -6,6 +6,8 @@ import { ForgotPasswordComponent } from './component/forgot-password/forgot-pass
 import { GetallbooksComponent } from './component/getallbooks/getallbooks.component';
 
 import { LoginComponentComponent } from './component/login-component/login-component.component';
+import { OrderPlacedComponent } from './component/order-placed/order-placed.component';
+import { OrderlistComponent } from './component/orderlist/orderlist.component';
 import { QuickViewComponent } from './component/quick-view/quick-view.component';
 import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
 import { SignupComponentComponent } from './component/signup-component/signup-component.component';
@@ -21,7 +23,9 @@ const routes: Routes = [
       { path: 'books', component: GetallbooksComponent },
       { path: 'quick-view', component: QuickViewComponent },
       { path: 'cart', component: CartComponent },
-      { path: 'wishlist', component: WishlistComponent }
+      { path: 'wishlist', component: WishlistComponent },
+      { path: 'orderlist', component: OrderlistComponent },
+      { path: 'orderplaced', component: OrderPlacedComponent }
     ]
   }
 ];

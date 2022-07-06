@@ -1,0 +1,35 @@
+.orderlistContent {
+    padding: 20px 60px 60px 60px;
+    max-width: 1000px;
+    margin: auto;
+}
+.title {
+    font-size: 20px;
+    margin-bottom: 0;
+}
+.auther {
+    color: grey;
+    margin: 0;
+}
+.priceSection {margin-top: 20px;}
+.dicountedPrice {
+    font-size: 20px;
+    font-weight: 500;
+}
+.actualPrice {
+    text-decoration: line-through;
+    color: gray;
+    font-size: 14px;
+    padding-left: 10px;
+}
+.greenDot {
+    font-size: 12px;
+    color: green;
+    width: 12px;
+}
+.placedDate {
+    padding-top: 24px;
+}
+.orderlistBox {
+    padding-bottom: 20px;
+}
